@@ -8,6 +8,6 @@ def safe_function(fct, *args):
         a, b = args
         res = fct(a, b)
         return res
-    except (ZeroDivisionError, TypeError, ValueError, IndexError) as ex:
+    except BaseException as ex:
         print("Exception: {}".format(ex), file=sys.stderr)
         return None

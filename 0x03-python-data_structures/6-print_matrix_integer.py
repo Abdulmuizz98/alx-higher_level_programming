@@ -5,6 +5,6 @@ def print_matrix_integer(matrix=[[]]):
         num = 0
         lim = len(i) - 1
         while num <= lim:
-            print("{}".format(i[num]), end=" " if (num != lim) else "")
+            print("{:d}".format(i[num]), end=" " if (num != lim) else "")
             num += 1
         print("")

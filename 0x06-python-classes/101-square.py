@@ -26,7 +26,7 @@ class Square:
     def __str__(self):
         """string representation of the square """
         if self.size == 0:
-            return "\n"
+            return ""
         res = ""
         lastIndex = len(range(self.size)) - 1
         for i in range(self.position[1]):

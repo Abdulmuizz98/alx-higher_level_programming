@@ -20,7 +20,7 @@ class Rectangle:
         if self.area() == 0:
             return res
         for h in range(self.height):
-            res += (self.width * Rectangle.print_symbol) + "\n"
+            res += (self.width * str(self.print_symbol)) + "\n"
         return res[:-1]
 
     def __repr__(self):

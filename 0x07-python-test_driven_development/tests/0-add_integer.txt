@@ -1,0 +1,30 @@
+Testing add_number function.
+
+Test for result with wrong types.
+	
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer("boy", 1)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+	>>> add_integer(1.5, None)
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+Test for result with correct types.
+
+::
+
+	>>> add_integer(1.5, 2.5)
+	3
+
+	>>> add_integer(1, 2)
+	3
+
+	>>> add_integer(2)
+	100
+
+	>>> add_integer(100.3, -2)
+	98

@@ -1,0 +1,68 @@
+Checking for module docstring:
+         >>> m = __import__("7-base_geometry").__doc__
+         >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+         >>> len(m) > 1
+         True
+
+Checking for class docstring:
+         >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+         >>> len(c) > 1
+         True
+
+Checking for method docstring:
+	  >>> mod = __import__("7-base_geometry").BaseGeometry.area.__doc__
+	  >>> len(mod) > 1
+	  True
+
+	  >>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	  >>> len(mod) > 1
+	  True
+
+Checking if area works as expected:
+	  >>> l = BaseGeometry()
+	  >>> l.area()
+	  Traceback (most recent call last):
+          ...
+	  Exception: area() is not implemented
+
+Checking integer validator value with wrong types (not int):
+	  >>> l.integer_validator("boy", "girl")
+	  Traceback (most recent call last):
+          ...
+          TypeError: <name> must be an integer
+
+	  >>> l.integer_validator("boy", True)
+	  Traceback (most recent call last):
+          ...
+          TypeError: <name> must be an integer
+
+	  >>> l.integer_validator("boy", [1, 2, 3])
+	  Traceback (most recent call last):
+          ...
+          TypeError: <name> must be an integer
+
+Checking integer validator with wrong values negative numbers:
+	  >>> l.integer_validator("boy", -1)
+	  Traceback (most recent call last):
+          ...
+          ValueError: <name> must be greater than 0
+
+	  >>> l.integer_validator("boy", 0)
+	  Traceback (most recent call last):
+          ...
+          ValueError: <name> must be greater than 0
+
+Checking with right values:
+	  >>> l.integer_validator("boy", 5)
+	  >>> l.integer_validator("boy", 1)
+
+Checking for too many argument:
+	  >>> l.area(1)
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: area() takes 1 positional argument but 2 were given
+
+	  >>> l.integer_validator("boy", 2 , 4)
+	  Traceback (most recent call last):
+	  ...
+	  TypeError: integer_validator() takes 3 positional arguments but 4 were given

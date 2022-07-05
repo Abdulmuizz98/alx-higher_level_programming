@@ -22,4 +22,5 @@ class Square(Rectangle):
         """
         Initialize the rectangle
         """
-        return "[{}] {}/{}".format(self.__class__.__name__, self.__size, self.__size)
+        return "[{}] {}/{}".format(self.__class__.__name__,
+                                   self.__size, self.__size)

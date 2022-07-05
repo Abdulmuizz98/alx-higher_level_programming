@@ -29,28 +29,72 @@ Checking integer validator value with wrong types (not int):
 	  >>> l.integer_validator("boy", "girl")
 	  Traceback (most recent call last):
           ...
-          TypeError: <name> must be an integer
+          TypeError: boy must be an integer
 
 	  >>> l.integer_validator("boy", True)
 	  Traceback (most recent call last):
           ...
-          TypeError: <name> must be an integer
+          TypeError: boy must be an integer
 
 	  >>> l.integer_validator("boy", [1, 2, 3])
 	  Traceback (most recent call last):
           ...
-          TypeError: <name> must be an integer
+          TypeError: boy must be an integer
+	  >>> l.integer_validator("bool", True)
+	  Traceback (most recent call last):
+          ...
+          TypeError: bool must be an integer
+	  >>> l.integer_validator("float", 1.5)
+          Traceback (most recent call last):
+          ...
+          TypeError: float must be an integer
+	  >>> l.integer_validator("complex", complex(1, 1))
+          Traceback (most recent call last):
+          ...
+          TypeError: complex must be an integer
+	  >>> l.integer_validator("string", "hello")
+          Traceback (most recent call last):
+          ...
+          TypeError: string must be an integer
+	  >>> l.integer_validator("tuple", (1, 2))
+          Traceback (most recent call last):
+          ...
+          TypeError: tuple must be an integer
+	  >>> l.integer_validator("list", [1, 2, 3])
+	  Traceback (most recent call last):
+          ...
+          TypeError: list must be an integer
+	  >>> l.integer_validator("dict", {"key": "value"})
+          Traceback (most recent call last):
+          ...
+          TypeError: dict must be an integer
+	  >>> l.integer_validator("set", {"hello", "world"})
+          Traceback (most recent call last):
+          ...
+          TypeError: set must be an integer
+	  >>> l.integer_validator("frozenset", frozenset(["hello", "world"]))
+          Traceback (most recent call last):
+          ...
+          TypeError: frozenset must be an integer
+	  >>> l.integer_validator("bytes", b"bytes")
+          Traceback (most recent call last):
+          ...
+          TypeError: bytes must be an integer
+	  >>> l.integer_validator("bytearrays", bytearray(b"bytes"))
+          Traceback (most recent call last):
+          ...
+          TypeError: bytearrays must be an integer
 
 Checking integer validator with wrong values negative numbers:
 	  >>> l.integer_validator("boy", -1)
 	  Traceback (most recent call last):
           ...
-          ValueError: <name> must be greater than 0
+          ValueError: boy must be greater than 0
 
 	  >>> l.integer_validator("boy", 0)
 	  Traceback (most recent call last):
           ...
-          ValueError: <name> must be greater than 0
+          ValueError: boy must be greater than 0
 
 Checking with right values:
 	  >>> l.integer_validator("boy", 5)
@@ -66,3 +110,15 @@ Checking for too many argument:
 	  Traceback (most recent call last):
 	  ...
 	  TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Checking for no arguments to integer_validator:
+	  >>> l.integer_validator()
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking for only 1 argument to integer_validator:
+	  >>> l.integer_validator("integer")
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 1 required positional argument: 'value'

@@ -12,9 +12,6 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def __str__(self):
-        return "[MyClass] {} - {:d}".format(self.name, self.number)
-
     def to_json(self, attrs=None):
         """retrieves dictionary representation of a student """
         dic = self.__dict__
@@ -27,6 +24,9 @@ class Student:
         """
         creates a student from a json file
         """
-        self.first_name = json['first_name']
-        self.last_name = json['last_name']
-        self.age = json['age']
+        if json.get("first_name") is not None:
+            self.first_name = json['first_name']
+        if json.get("last_name") is not None:
+            self.last_name = json['last_name']
+        if json.get("age") is not None:
+            self.age = json['age']

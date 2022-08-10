@@ -1,2 +1,2 @@
--- print full description of the table 'first_table'
-SHOW CREATE TABLE `first_table`;
+-- lists all the tables of a database
+SHOW TABLES;

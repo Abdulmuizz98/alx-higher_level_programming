@@ -3,4 +3,4 @@ SELECT id, name FROM cities
 WHERE state_id IN 
 	(SELECT id FROM states
 	WHERE name = 'California')
-ORDER BY ASC id;
+ORDER BY id;

@@ -1,2 +1,5 @@
--- lists all the tables of a database
-SHOW TABLES;
+-- creates a table called 'first_table'
+CREATE TABLE IF NOT EXISTS first_table(
+    id INT,
+    name VARCHAR(256)
+);

@@ -4,6 +4,7 @@ A python file that contains the class definition of a
 State and an instance Base = declarative_base()
 """
 
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer
 
@@ -16,7 +17,9 @@ class State(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(128))
+    cities = relationship("City", backref="states")
 
-    def __init__(self, name):
+    def __init__(self, name, cities):
         """Initialize the State class """
         self.name = name
+        self.cities = cities

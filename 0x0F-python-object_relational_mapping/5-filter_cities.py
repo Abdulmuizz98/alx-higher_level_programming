@@ -22,4 +22,5 @@ if __name__ == "__main__":
         cities = [row[0] for row in rows]
         if cities:
             [print(city, end=", ") for city in cities[:-1]]
-            print(cities[-1])
+            print(cities[-1], end="")
+    print()

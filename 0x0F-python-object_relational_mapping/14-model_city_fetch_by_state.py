@@ -17,8 +17,11 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-
+    """
     cities = session.query(City) \
         .join(State) \
         .filter(City.state_id == State.id).all()
-    [print(f'{city.state.name}: ({city.id}) {city.name}') for city in cities]
+    `"""
+    cities = session.query(State, City) \
+        .filter(City.state_id == State.id).all()
+    [print(f'{state.name}: ({city.id}) {city.name}') for state, city in cities]

@@ -18,9 +18,8 @@ if __name__ == "__main__":
                  WHERE s.name =  BINARY %s \
                  ORDER BY c.id ", (statename,))
     rows = cur.fetchall()
-    if rows:
-        cities = [row[0] for row in rows]
-        if cities:
-            [print(city, end=", ") for city in cities[:-1]]
-            print(cities[-1], end="")
+    cities = [row[0] for row in rows]
+    [print(city, end=", ") for city in cities[:-1]]
+    if cities:
+        print(cities[-1], end="")
     print()

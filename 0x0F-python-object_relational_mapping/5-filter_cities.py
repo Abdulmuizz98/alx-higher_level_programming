@@ -15,9 +15,11 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT c.name FROM cities AS c \
                  INNER JOIN states AS s ON c.state_id = s.id \
-                 WHERE s.name = %s \
+                 WHERE s.name =  BINARY %s \
                  ORDER BY c.id ", (statename,))
     rows = cur.fetchall()
-    cities = [row[0] for row in rows]
-    [print(city, end=", ") for city in cities[:-1]]
-    print(cities[-1])
+    if rows:
+        cities = [row[0] for row in rows]
+    if cities:
+        [print(city, end=", ") for city in cities[:-1]]
+        print(cities[-1])

@@ -17,7 +17,7 @@ class State(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(128))
-    cities = relationship("City", backref="states")
+    cities = relationship("City", backref="state")
 
     def __init__(self, name):
         """Initialize the State class """

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     response = requests.post(url, data={'q': letter_payload})
     try:
         dic = response.json()
-    except BaseException:
+    except ValueError:
         print("Not a valide JSON")
     else:
         if dic != {}:

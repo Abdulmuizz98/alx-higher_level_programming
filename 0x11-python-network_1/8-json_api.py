@@ -15,10 +15,9 @@ if __name__ == "__main__":
     response = requests.post(url, data={'q': letter_payload})
     try:
         dic = response.json()
-    except ValueError:
-        print("Not a valide JSON")
-    else:
         if dic != {}:
             print(f"[{dic['id']}] {dic['name']}")
         else:
             print("No result")
+    except ValueError:
+        print("Not a valide JSON")

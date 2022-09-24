@@ -13,12 +13,12 @@ if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
 
     response = requests.post(url, data={'q': letter_payload})
-    dic = response.json()
-
-    if dic:
-        print(f"[{dic['id']}] {dic['name']}")
+    try:
+        dic = response.json()
+    except BaseException:
+        print("Not a valide JSON")
     else:
-        if type(dic) is not dict:
-            print("Not a valide JSON")
+        if dic:
+            print(f"[{dic['id']}] {dic['name']}")
         else:
             print("No result")

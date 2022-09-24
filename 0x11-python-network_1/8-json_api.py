@@ -18,7 +18,7 @@ if __name__ == "__main__":
     except BaseException:
         print("Not a valide JSON")
     else:
-        if dic:
+        if dic != {}:
             print(f"[{dic['id']}] {dic['name']}")
         else:
             print("No result")

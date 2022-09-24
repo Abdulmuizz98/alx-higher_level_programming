@@ -9,15 +9,15 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    letter_payload = argv[1] if len(argv) > 1 else ""
-    url = "http://0.0.0.0:5000/search_user"
+    letter = "" if len(sys.argv) == 1 else sys.argv[1]
+    payload = {"q": letter}
 
-    response = requests.post(url, data={'q': letter_payload})
+    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
-        dic = response.json()
-        if dic != {}:
-            print(f"[{dic['id']}] {dic['name']}")
-        else:
+        response = r.json()
+        if response == {}:
             print("No result")
+        else:
+            print("[{}] {}".format(response.get("id"), response.get("name")))
     except ValueError:
-        print("Not a valide JSON")
+        print("Not a valid JSON")

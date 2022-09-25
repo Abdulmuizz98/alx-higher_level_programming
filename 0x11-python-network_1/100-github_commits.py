@@ -7,7 +7,7 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    url = f"https://api.github.com/repos/{argv[1]}/{argv[2]}/commits"
+    url = f"https://api.github.com/repos/{argv[2]}/{argv[1]}/commits"
     r = requests.get(url)
     response = r.json()
     for commit in response:

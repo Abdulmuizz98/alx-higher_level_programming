@@ -79,3 +79,10 @@ Test lastname is empty string when not provided.
 
     >>> say_my_name('Jane')
     My name is Jane 
+
+Test function should raise when missing 2 arguments.
+::
+
+    >>> say_my_name()   #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:

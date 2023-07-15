@@ -60,3 +60,11 @@ Test function prints required output
     ####
     ####
     ####
+
+
+Test enough parameters passed
+::
+
+    >>> print_square()  #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    TypeError:

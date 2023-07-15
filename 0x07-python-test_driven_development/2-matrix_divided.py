@@ -25,4 +25,4 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError('division by zero')
     
     new_matrix = [row[:] for row in matrix]
-    return [ round(elem / div, 2)  for row in new_matrix for elem in row]
+    return [ [round(elem / div, 2) for elem in row]  for row in new_matrix ]

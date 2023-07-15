@@ -1,0 +1,81 @@
+Testing ``say_my_name()`` function.
+
+Test first_name and last_name are of required type.
+::
+
+    String values for first_name and last_name should work::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name('Jane', 'Doe')
+    My name is Jane Doe
+
+
+    Integer values for first_name and last_name should raise::
+
+    >>> say_my_name(1, 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Jane', 2)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
+    Float values for first_name and last_name should raise::
+
+    >>> say_my_name(1.25, 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Jane', 1.25)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
+    List values for first_name and last_name should raise::
+
+    >>> say_my_name([], 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Jane', [])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
+    Dict values for first_name and last_name should raise::
+
+    >>> say_my_name({}, 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Jane', {})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
+    Complex values for first_name and last_name should raise::
+
+    >>> say_my_name(2 + 4j, 'Doe')
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Jane', 2 + 4j)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+
+Test function prints required output.
+::
+
+    >>> say_my_name('Jane', 'Doe')
+    My name is Jane Doe
+
+    >>> say_my_name('Peter', 'Pan')
+    My name is Peter Pan
+
+Test lastname is empty string when not provided.
+::
+
+    >>> say_my_name('Jane')
+    My name is Jane 

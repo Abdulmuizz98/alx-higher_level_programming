@@ -1,4 +1,4 @@
-Testing ``matrix_divided()``
+Testing ``matrix_divided()`` function.
 
 Test divisor is of the right type.
 ::

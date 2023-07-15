@@ -13,6 +13,14 @@ Test for result with wrong types.
 	Traceback (most recent call last):
 	TypeError: b must be an integer
 
+	>>> add_integer(float('inf'))	#doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	ValueError:
+
+	>>> add_integer(float('nan'))	#doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	ValueError:
+
 Test for result with correct types.
 
 ::

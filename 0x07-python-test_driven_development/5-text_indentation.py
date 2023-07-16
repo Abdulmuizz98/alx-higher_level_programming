@@ -12,7 +12,15 @@ def text_indentation(text):
     """
     if type(text) is not str:
         raise TypeError('text must be a string')
+    """
     res = text.replace(': ', ':').replace(':', ':\n\n')
     res = res.replace('. ', '.').replace('.', '.\n\n')
     res = res.replace('? ', '?').replace('?', '?\n\n')
+    """
+
+    temp = text.replace('.', '.\n\n<sep>').replace(
+                    ':', ':\n\n<sep>').replace(
+                    '?', '?\n\n<sep>')
+    temp = temp.split('<sep>')
+    res = ''.join([el.lstrip() for el in temp])
     print(res, end="")
